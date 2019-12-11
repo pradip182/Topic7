@@ -1,32 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="#f8f9fd"
     tools:context=".MainActivity">
 
-    <EditText
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Enter word"
-        android:layout_margin="20dp"
-        android:id="@+id/etWord"/>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter Meaning"
-        android:layout_margin="20dp"
-        android:id="@+id/etMeaning"/>
+        android:layout_marginStart="87dp"
+        android:layout_marginTop="40dp"
+        android:text="TextView"
+        android:textColorHint="@color/colorAccent"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:text="ADD"
-        android:id="@+id/btnAdd"
-        />
+        android:id="@+id/btnadd"
+        android:layout_width="310dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="44dp"
+        android:text="Add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent" />
 
-</LinearLayout>
+    <EditText
+        android:id="@+id/etbri"
+        android:layout_width="315dp"
+        android:layout_height="69dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="44dp"
+        android:ems="10"
+        android:hint="Word"
+        android:inputType="textPersonName"
+        android:textColor="#2E7D32"
+        android:textColorHint="@color/colorAccent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
+        android:id="@+id/etmeani"
+        android:layout_width="357dp"
+        android:layout_height="335dp"
+        android:layout_marginTop="60dp"
+        android:ems="10"
+        android:gravity="start"
+        android:hint="Meaning"
+        android:inputType="textPersonName"
+        android:textColor="#2E7D32"
+        android:textColorHint="@color/colorAccent"
+        app:layout_constraintBottom_toTopOf="@+id/btnadd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etbri"
+        app:layout_constraintVertical_bias="0.0" />
+</androidx.constraintlayout.widget.ConstraintLayout>

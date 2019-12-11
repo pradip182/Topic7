@@ -9,31 +9,33 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.PrintStream;
 
 public class MainActivity extends AppCompatActivity {
-    EditText etWord, etMeaning;
-    Button btnAdd;
 
+    Button btnadd;
+    EditText etbri;
+    EditText etmeani;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        btnadd=findViewById(R.id.btnadd);
+        etbri=findViewById(R.id.etbri);
+        etmeani=findViewById(R.id.etmeani);
 
-        etWord=findViewById(R.id.etWord);
-        etMeaning=findViewById(R.id.etMeaning);
-        btnAdd=findViewById(R.id.btnAdd);
-
-        btnAdd.setOnClickListener(new View.OnClickListener() {
+        btnadd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
                     PrintStream printStream=new PrintStream(openFileOutput("words.txt",MODE_PRIVATE|MODE_APPEND));
-                    printStream.println(etWord.getText().toString()+"->"+etMeaning.getText().toString());
-                    Toast.makeText(MainActivity.this, "saved to "+getFilesDir(), Toast.LENGTH_SHORT).show();
-                } catch (FileNotFoundException e) {
-                    Log.d("Dictionary app","Error"+e.toString());
+                    printStream.println(etbri.getText().toString() +"->"+ etmeani.getText().toString());
+                    Toast.makeText(MainActivity.this, "Saved to"+getFilesDir(), Toast.LENGTH_SHORT).show();
+                }
+                catch (IOException e)
+                {
+                    Log.d("Dictionaryapp", "Error: "+e.toString());
                     e.printStackTrace();
                 }
             }
